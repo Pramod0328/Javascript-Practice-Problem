@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link href="./index.css" rel="stylesheet">
+    <title>React App</title>
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+      let score = 0;
+      let wicket = 0;
+
+      function addOne(){
+        score +=1;
+        render();
+      }
+
+      function addTwo(){
+        score +=2;
+        render();
+      }
+
+      function addThree(num){
+        score +=num;
+        render();
+      }
+
+      function addFour(num){
+        score +=num;
+        render();
+      }
+      
+      function addFive(num){
+        score +=num;
+        render();
+      }
+
+      function addSix(num){
+        if(wicket<10){
+        score +=num;
+        render();
+      }
+    }
+      function addWicket(){
+        if(wicket <10){
+          wicket += 1;
+          render();
+        }      
+      }
+      const App = () =>{
+        return( <>
+        <div>
+            <h1>SCORE KEEPER APP</h1>
+            <h2>SCORE:{score}/{wicket}</h2>
+            <button onClick={addOne}>1</button>
+            <button onClick={addTwo}>2</button>
+            <button onClick={()=>addThree(3)}>3</button>
+            <button onClick={()=>addFour(4)}>4</button>
+            <button onClick={()=>addFive(5)}>5</button>
+            <button onClick={()=>addSix(6)}>6</button>
+            <button onClick={addWicket}>Wicket</button>
+        </div>
+        </>)
+      }
+
+      const rootElement = ReactDOM.createRoot(document.getElementById("root"));
+      rootElement.render(<App />);
+      
+      const render = () => {
+      rootElement.render(<App />);
+    };
+
+    // Initial render
+    render();
+    </script>
+  </body>
+</html>
